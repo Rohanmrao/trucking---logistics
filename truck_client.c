@@ -176,7 +176,7 @@ int main()
 			{eta = 10; break;}
 		case 2:
 			{eta = 13; break;}
-		case 3:							// ETA calculation
+		case 3:							// ETA calculation in hours
 			{eta = 15; break;}
 		case 4:
 			{eta = 18; break;}
@@ -211,8 +211,10 @@ int main()
 	{
 		printf("\n");
 		printf("Thank You");
-		main();
-		printf("\n");
+		printf("*******************************************************");
+		printf("*******************************************************");
+
+		main(); // running the main fucntion again for a rerun;
 	}
 
 }
