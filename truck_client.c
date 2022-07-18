@@ -119,7 +119,8 @@ int main()
 
 	printf("\n");
 	truck_disp();
-	printf("Procees with %d...? \n",choice_flag);
+	printf("-----------------------------------------------------\n");
+	printf("Proceed with %d...? \n",choice_flag);
 	printf("Type 1 to accept... 2 to reject :");
 	scanf("%d",&truck_choice); getchar();
 	choice_flag=2;
@@ -211,8 +212,8 @@ int main()
 	{
 		printf("\n");
 		printf("Thank You");
-		printf("*******************************************************");
-		printf("*******************************************************");
+		printf("*******************************************************\n");
+		printf("*******************************************************\n");
 
 		main(); // running the main fucntion again for a rerun;
 	}
