@@ -10,7 +10,8 @@ double mobileNumber(double mb)                                       //Checks wh
 {
     if (mb < 1000000000 || mb > 9999999999)
     {
-        printf("\n Please enter only 10 digits... \n");
+        printf("\n Please enter only 10 digits...creating new session \n");
+		main();
 		exit(0);    
     }
     return mb;
@@ -28,12 +29,12 @@ void random_num(double mob)                                         // Generates
 	printf("\n");
     printf("                       ENTER THE SESSION ID : ");
     scanf("%d",&otp);
-	getchar();
+	//getchar();
     
     if(a==otp)
     {
         printf("\n");
-		printf("      WELCOME TO OUR SYSTEM !! YOUR LOGIN IS SUCCESSFUL\n");
+		printf("LOGIN IS SUCCESSFUL\n");
 	 
         FILE *fp;
 	    fp=fopen("logindetails.txt","w");
@@ -43,7 +44,8 @@ void random_num(double mob)                                         // Generates
     }    
     else 
     {
-        printf("             SORRY !!!!  LOGIN IS UNSUCCESSFULL\n");   
+        printf("LOGIN IS UNSUCCESSFULL... opening new session\n");
+		main();   
     }
 }
 
@@ -110,15 +112,14 @@ int enterplace(int p1,int p2)                          //Function to take the in
 	return dist_multiplier ; 
 }
 
-int flag;                                               //  a counting variable
-
-int check(int dd,int mm ,int yy)                       // validating the entered dates assuming all months have only 30 days
+                                            //  a counting variable
+int check_flag = 0;
+int check(int dd,int mm ,int yy,int flag)                       // validating the entered dates assuming all months have only 30 days
 {     
 
     time_t t;                                         // time_t  is a type suitable for storing calendar time
     t = time(NULL);
     struct tm tm = *localtime(&t);                   //accessing local time
-    flag=0;
 
                                                     //tm.tm_year+1900 : current year  ||  tm.tm_mon+1 : current month ||   tm.tm_mday: current day of the month
 
@@ -128,7 +129,7 @@ int check(int dd,int mm ,int yy)                       // validating the entered
        {
            if(dd>tm.tm_mday && dd<=30)
             {
-                return flag++;
+                check_flag++;
             }
               
         }
@@ -137,19 +138,19 @@ int check(int dd,int mm ,int yy)                       // validating the entered
         {
             if(dd>=1 && dd<=30)
             {
-               return flag++;
+               check_flag++;
             }
         }
     
     }
 
-    if (yy==(tm.tm_year+1901))                 // checking if the entered  year is the next year and the following is executed when user enters the next year
+    if (yy==(tm.tm_year+1901))                 // checking if the entered  year is the net year and the following is executed when user enters the next year
     {
        if(mm==(tm.tm_mon+1))                  // checking if the month number for the next year matches the current month number 
        {
            if(dd<=tm.tm_mday && dd>=1)       //since tickets are availble for 1 year period , the  dates accepted will range from (1 to current date number)
               {
-                 return  flag++;
+                check_flag++;
               }
               
         }
@@ -158,10 +159,12 @@ int check(int dd,int mm ,int yy)                       // validating the entered
         {
             if(dd>=1 && dd<=30)             // all date numbers are vaild 
             {
-               return flag++;
+               check_flag++;
             }
         }
     }
+
+	return check_flag;
       
 }  
 
@@ -171,7 +174,7 @@ void truck_disp()                           // Displays the available truck deta
 	printf("___(The deprature timings are mentioned along with the location and driver details)___ \n");
 	printf("-----------------------------------------------------------------------\n");
 
-        char *train_db[25] = {"Eicher-0A1","Eicher-0A2","Eicher-0B1","Eicher-0B2","Eicher-0AB",
+        char *truck_db[25] = {"Eicher-0A1","Eicher-0A2","Eicher-0B1","Eicher-0B2","Eicher-0AB",
 		
 		"Mercedes-X0A2" ,"Mercedes-X0A1","Mercedes-X0AB","Mercedes-X0AC" ,"Mercedes-X0AD",
 		"Tata-Heavy-A01","Tata-Heavy-A02","Tata-Heavy-A03","Tata-Heavy-B01","Tata-Heavy-BC1","Tata-Heavy-BC2" 
@@ -202,9 +205,10 @@ void truck_disp()                           // Displays the available truck deta
 			ind3 = ((rand() % (u - l + 1)) + l);
 			int hr = time_hr[ind1];
 			int min = time_min[ind1];
-			
-            printf("%d ",i+1);
-            printf("%s\tLoading Station: %s\t Driven by: %s\t\t ",train_db[ind1],loc[ind2],d_names[ind3]);
+			fflush(stdin);
+			fflush(stdout);
+            printf("%d\t",i+1);
+            printf("%s\t\t at Loading Station: %s\t Driven by: %s\t\t ",truck_db[ind1],loc[ind2],d_names[ind3]);
             if(i%2 == 0)
             {
                 printf("at %d:%d AM\n",hr,min);
@@ -214,6 +218,9 @@ void truck_disp()                           // Displays the available truck deta
                 printf("at %d:%d PM\n",hr,min);
             }
         }
+
+		fflush(stdin);
+		fflush(stdout);
 }
 
 int cout;                             //A counting variable
@@ -358,7 +365,7 @@ void cancel_front(double mobileNum)  // Function to cancel previously scheduled 
 				trials++;
 			}
 
-			                       //CHECKING IF THE NUMBER ENTERED MATCHES THE GENERATED ID
+			     //CHECKING IF THE NUMBER ENTERED MATCHES THE GENERATED ID
 			if(otp_enter == otp)
 			{
 				printf("\n");
@@ -372,7 +379,7 @@ void cancel_front(double mobileNum)  // Function to cancel previously scheduled 
 		
 		}
 
-		else                       //IF PHONE NUMBER ENTERED DOES NOT MATCH THAT PRESENT IN THE TEXT FILE
+		else  //IF PHONE NUMBER ENTERED DOES NOT MATCH THAT PRESENT IN THE TEXT FILE
 		{
 			printf("\n");
 			printf("	INVALID PHONE NUMBER! \n");
@@ -382,7 +389,7 @@ void cancel_front(double mobileNum)  // Function to cancel previously scheduled 
 	}
 
 	printf("\n");
-	printf("	THANK YOU! \n");
+	printf("____THANK YOU!____ (opening new terminal...) \n");
 }
 
 

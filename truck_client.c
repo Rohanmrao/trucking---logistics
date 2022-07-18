@@ -97,21 +97,21 @@ int main()
 	printf("\n");
 	dm = enterplace(p1,p2);                           // distance  multiplier generated here 
 	                                                 // enterplace() is called to verify whether the entered places are valid or not 
-    ;
-	
+
 	printf(" \n ---------------------DATES AVAILABLE WITHIN 1 YEAR PERIOD  -------------------------\n ");
 	printf("\n");
 	printf("\n----------NOTE : booking date and travelling dates must have  minimum of 1 day gap------------- \n ");
 	printf("\n");
 	printf("Enter the  booking date  (DD/MM/YYYY) : ");         
-	scanf("%d/%d/%d",&dd,&mm,&yy);getchar();
-	a=check(dd,mm ,yy);
-	while(flag==0)                                     // executed only if the entered date is invalid 
+	scanf("%d/%d/%d",&dd,&mm,&yy);//getchar();
+	a=check(dd,mm,yy,flag);
+	printf("%d\n",a);
+	if(a == 0)                                     // executed only if the entered date is invalid 
     {
         printf("Please enter a valid date (DD/MM/YYYY format): ");
         scanf("%d/%d/%d",&dd,&mm,&yy);
 		fflush(stdin);
-        check(dd,mm ,yy);                             // re-checking if the entered date is valid 
+        check(dd,mm ,yy,flag);                             // re-checking if the entered date is valid 
     }    
 	fflush(stdin);
 	
@@ -122,7 +122,7 @@ int main()
 	printf("-----------------------------------------------------\n");
 	printf("Proceed with %d...? \n",choice_flag);
 	printf("Type 1 to accept... 2 to reject :");
-	scanf("%d",&truck_choice); getchar();
+	scanf("%d",&truck_choice); //getchar();
 	choice_flag=2;
 
 	if(truck_choice == 2 && choice_flag>=2)
@@ -131,7 +131,7 @@ int main()
 		printf("Reallotting...\n");
 		printf("Proceed with %d...? \n",choice_flag);
 		printf("Type 1 to accept... 2 to reject :");
-		scanf("%d",&truck_choice); getchar();
+		scanf("%d",&truck_choice); //getchar();
 		choice_flag=3;
 	}
 
@@ -141,7 +141,7 @@ int main()
 		printf("Reallotting...\n");
 		printf("Proceed with %d...? \n",choice_flag);
 		printf("Type 1 to accept... 2 to reject :");
-		scanf("%d",&truck_choice); getchar();
+		scanf("%d",&truck_choice); //getchar();
 		choice_flag=4;
 	}
 
@@ -151,7 +151,7 @@ int main()
 		printf("Reallotting...\n");
 		printf("Proceed with %d...? \n",choice_flag);
 		printf("Type 1 to accept... 2 to reject :");
-		scanf("%d",&truck_choice); getchar();
+		scanf("%d",&truck_choice); //getchar();
 		choice_flag=5;
 	}
 
@@ -166,10 +166,12 @@ int main()
 	fflush(stdin);
   	scanf("%d",&emp_no);getchar();  	
 	printf("1.LONG TRAILER  | 2. SHORT BED | 3. SLEEPER CABIN | 4.EXTRA FUEL TANKS  \n"); // selection of additional features
+	printf("_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_\n");
   	printf("Select the add-ons by entering the number next to it: ");
   	scanf("%d",&ser);getchar();
   	printf("Weight load in TONS: ");
   	scanf("%d",&tonz);getchar();
+	fflush(stdin);
 	payup = final_cost(ser,dm);                   // final_cost() is called to calculate the final amount 
 
 	switch (dm){
@@ -185,7 +187,7 @@ int main()
 
 	// bill displaying data based on info collected from user
 	printf("\n");
-	printf("\n---------- BILL ------------\n");
+	printf("\n----------DETAILS------------\n");
 	printf("\n");
 	printf("Name:");
 	puts(name);
@@ -211,10 +213,11 @@ int main()
 	else
 	{
 		printf("\n");
-		printf("Thank You");
+		printf("Thank You\n");
 		printf("*******************************************************\n");
 		printf("*******************************************************\n");
-
+		fflush(stdin);
+		fflush(stdout);
 		main(); // running the main fucntion again for a rerun;
 	}
 
