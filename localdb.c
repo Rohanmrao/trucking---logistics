@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "truck_server.h"
-
+#include "localdb.h"
 
 typedef struct node{
     int key;
@@ -96,19 +96,3 @@ void display(Q *q){
     temp = NULL;
 }
 
-int main(){
-
-    Q *q = create_queue();
-
-    schedule_job(q,5);
-    schedule_job(q,7);
-    schedule_job(q,9);
-
-    delete_job(q);
-
-    display(q);
-
-    return 0;
-}
-
-main();
