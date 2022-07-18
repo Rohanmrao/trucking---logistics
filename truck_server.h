@@ -20,3 +20,11 @@ typedef struct location
 	char destination[100];
 }location;  
 
+// stack implementation 
+
+NODE *create_node(int);
+Q *create_queue();
+void schedule_job(Q*,int);
+void delete_job(Q*);
+void display_schedule(Q*);
+
