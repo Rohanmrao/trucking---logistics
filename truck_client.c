@@ -45,7 +45,7 @@
 	int eta; // eta in hours
 //*******************************************************************************************
 
-int main()                                            //Main Function
+int main() 
 
 { 
 	printf("\t\t=================================================\n");
@@ -61,7 +61,7 @@ int main()                                            //Main Function
 	printf("\t\t|                                               |\n");
 	printf("\t\t=================================================\n\n\n");
 	
-    printf("========================================================\n");
+    printf("=========================*new session*===========================\n");
 	printf("    EMPLOYEE TERMINAL - LOGIN/CANCEL Pemp_no\n");
 	printf("========================================================\n");
 	printf("\n");
@@ -73,7 +73,6 @@ int main()                                            //Main Function
 
 	mobileNumber(mobileNum);                         //mobilenumber() is called to verify whether the entered number is 10 digit or not
 	random_num(mobileNum);                           //random_num() is called to generate the random four digit number
-	//getchar();
 
 	printf("\n");
 	printf("Do you want to cancel an existing job ? (y/n): ");
@@ -171,17 +170,6 @@ int main()                                            //Main Function
   	printf("Weight load in TONS: ");
   	scanf("%d",&tonz);getchar();
 	payup = final_cost(ser,dm);                   // final_cost() is called to calculate the final amount 
-  	
-	while(cout==0)
-	{
-       printf("Select coach class by entering the number next to it: ");
-  	   scanf("%d",&ser);getchar();
-
-	   payup = final_cost(ser,dm);    
-	}
-	
-
-	fflush(stdin);
 
 	switch (dm){
 		case 1:
@@ -192,6 +180,7 @@ int main()                                            //Main Function
 			{eta = 15; break;}
 		case 4:
 			{eta = 18; break;}
+	}
 
 	// bill displaying data based on info collected from user
 	printf("\n");
@@ -222,8 +211,8 @@ int main()                                            //Main Function
 	{
 		printf("\n");
 		printf("Thank You");
+		main();
 		printf("\n");
 	}
-	
-	return(0);
+
 }

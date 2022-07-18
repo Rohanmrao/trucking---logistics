@@ -171,14 +171,12 @@ void truck_disp()                           // Displays the available truck deta
 	printf("___(The deprature timings are mentioned along with the location and driver details)___ \n");
 	printf("-----------------------------------------------------------------------\n");
 
-        char *train_db[25] = {"","MangalaLakshadweepExpress","PrashantiExpress",
-                            "SharavatiExpress","WaingangaSuperfastExpress","KondaveeduExpress"
-                            ,"RaniChennammaExpress","JanShatabdiExpress","RajyaRaniExpress"
-                            ,"SiddagangaIntercity","VishwamanavaExpress","ChamundiExpress"
-                            ,"KaveriExpress","BasavaExpress","GolGumbazExpress","TippuSuperfastExpress"    
-                            ,"DurontoExpress","GaribRathExpress","MalgudiExpress","GomateshwaraExpress"
-                           ,"SamparkKrantiExpress","AmaravatiExpress"
-						   ,"PanchagangaExpress","NightQueenPassenger","HumsafarExpress"
+        char *train_db[25] = {"Eicher-0A1","Eicher-0A2","Eicher-0B1","Eicher-0B2","Eicher-0AB",
+		
+		"Mercedes-X0A2" ,"Mercedes-X0A1","Mercedes-X0AB","Mercedes-X0AC" ,"Mercedes-X0AD",
+		"Tata-Heavy-A01","Tata-Heavy-A02","Tata-Heavy-A03","Tata-Heavy-B01","Tata-Heavy-BC1","Tata-Heavy-BC2" 
+		,"Wilson-44-D01","Wilson-44-C01","Wilson-44-B01","Wilson-44-A02","Wilson-44-A01",
+		"Kenworth-DC-A01","Kenworth-DC-A02","Kenworth-DC-B01","Kenworth-DC-B02"
                         };
 
 		char *d_names[25] = {"Lokesh", "Umesh","Ravi","Anthony","Vinod","Nikhil","Rajesh","Raj","Mahesh","Ganesh","Ramesh","Virat","Manish",
@@ -204,6 +202,7 @@ void truck_disp()                           // Displays the available truck deta
 			ind3 = ((rand() % (u - l + 1)) + l);
 			int hr = time_hr[ind1];
 			int min = time_min[ind1];
+			
             printf("%d ",i+1);
             printf("%s\tLoading Station: %s\t Driven by: %s\t\t ",train_db[ind1],loc[ind2],d_names[ind3]);
             if(i%2 == 0)
