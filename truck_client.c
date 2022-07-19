@@ -105,7 +105,7 @@ int main()
 				printf("\t\t|     --------------------------------          |\n");
 				printf("\t\t|                                               |\n");
 				printf("\t\t|      _______DSA MINI PROJECT______            |\n");
-				printf("\t\t|                                               |\n");
+				printf("\t\t|              Rohan And Nehal                  |\n");
 				printf("\t\t|                                               |\n");
 				printf("\t\t|                                               |\n");
 				printf("\t\t|                                               |\n");
