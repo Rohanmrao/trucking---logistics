@@ -4,16 +4,6 @@
 #include <time.h>
 #include <stdlib.h>
 
-typedef struct node{
-    int key;
-    struct node *next;
-}NODE;
-
-typedef struct queue{
-
-    struct node *front , *rear;
-}Q;
-
 // Defnition for all the functions that will land on the opening page  
 
 double mobileNumber(double mb)                                       //Checks whether the mobilenumber entered is 10 digit or not

@@ -20,6 +20,16 @@ typedef struct location
 	char destination[100];
 }location;  
 
+typedef struct node{
+    int key;
+    struct node *next;
+}NODE;
+
+typedef struct queue{
+
+    struct node *front , *rear;
+}Q;
+
 // stack implementation 
 
 NODE *create_node(int);
