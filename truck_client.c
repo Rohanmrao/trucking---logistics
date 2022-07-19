@@ -285,8 +285,9 @@ int main()
 
 					fflush(stdin);
 					fflush(stdout);
-
 					break;
+
+					
 			}
 
 			case 3:{
@@ -300,8 +301,10 @@ int main()
 
 	}	
 
-		return 0;
+		
 	}
+
+	return 0;
 
 }
 
