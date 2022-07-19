@@ -6,6 +6,7 @@
 
 #pragma GCC diagnostic ignored "-Wimplicit-function-declaration"
 #pragma GCC diagnostic ignored "-Wincompatible-pointer-types"
+#pragma GCC diagnostic ignored "-Wint-conversion"
 
 // Defnition for all the functions that will land on the opening page  
 
