@@ -28,8 +28,8 @@
 
 	location loc;
 
-	char *places[50] = {"BangaloreCity", "Mumbai", "NewDelhi", "Bijapur", "Kolhapur", "Mysore", "Badami", 
-	"Chennai", "Secunderabad", "Hubli", "Hospet", "Jaipur", "Lucknow", "Solapur", "Mangalore"};
+	char *places[50] = {"Bangalore", "Mysore", "Hubli", "Mangalore", "Chennai", "Hyderabad", "Bijapur", 
+	"Mumbai", "Goa", "Noida", "Meerut", "Agra", "Lucknow", "Gurgaon", "Jammu"};
 
 	int eta; // eta in hours
 
