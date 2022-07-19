@@ -238,19 +238,19 @@ int final_cost(int s, int distmult, int weight)      //Calculates the final trip
 	cout++;
     if(s==1)
     {
-      return (2500*s*distmult*10*weight);
+      return (2500*s*distmult*weight);
     }   
     if(s==2)
     {
-      return (2000*s*distmult*10*weight);
+      return (2000*s*distmult*weight);
     }  
     if(s==3)
     {
-      return (1500*s*distmult*10*weight);
+      return (1500*s*distmult*weight);
     }   
     else
     {
-      return (1000*s*distmult*10*weight);
+      return (1000*s*distmult*weight);
     }     
   } 
                                     // formula used to calculate the cost : final price = distance_multiplier * number of tickets * reservation multiplier 
@@ -454,7 +454,7 @@ void display_schedule(Q *q){
     NODE *temp = q->front; // this will traverse the queue 
     temp = q->front;
 
-    if(temp == NULL){printf("No jobs scheduled...\n");}
+    if(temp == NULL){printf("No jobs scheduled...\n");printf("\n");}
 
     while (temp != NULL){
         
