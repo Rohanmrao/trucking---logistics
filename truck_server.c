@@ -453,6 +453,8 @@ void display_schedule(Q *q){
     NODE *temp = q->front; // this will traverse the queue 
     temp = q->front;
 
+    if(temp == NULL){printf("No jobs scheduled...\n");}
+
     while (temp != NULL){
         
         temp = q->front;
@@ -463,6 +465,56 @@ void display_schedule(Q *q){
 
     free(temp);
     temp = NULL;
+}
+
+NODE_D* createNode(int licence_num,int driver_age,int driver_id)
+{
+	NODE_D *newNode=malloc(sizeof(NODE_D));
+	newNode->licence_num  = licence_num;
+	newNode->driver_age  = driver_age;
+	newNode->driver_id  = driver_id;
+	newNode->next=NULL;
+	return newNode;
+} 
+
+void add_driver(LLIST *pl,int licence_num,int driver_age,int driver_id)
+{
+	NODE_D *newNode=createNode(licence_num,driver_age,driver_id); 
+
+	newNode->next=pl->head;
+
+	pl->head=newNode;
+}
+
+void display_drivers(LLIST *pl)
+{
+	NODE_D *p = pl->head;
+	if(pl->head==NULL)
+	{
+		printf("No Drivers\n");
+	}
+	else
+	{
+		while(p!=NULL)
+		{
+			printf("%d\t", p->licence_num);
+            printf("%d\t", p->driver_age);     
+            printf("%d\n", p->driver_id);
+			p=p->next;
+		}
+	}
+}
+
+int countNodes(LLIST *pl)
+{
+	NODE_D *p=pl->head;
+	int count =0;
+	while(p!=NULL)
+	{
+		count++;
+		p=p->next;
+	}
+	return count;
 }
 
 

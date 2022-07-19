@@ -5,7 +5,8 @@
 #include <time.h>
 
 #pragma GCC diagnostic ignored "-Wimplicit-function-declaration"
-#pragma GCC diagnostic ignored "-Wincompatible-pointer-types"
+#pragma GCC diagnostic ignored "-Wincompatible-pointer-types" 
+#pragma GCC diagnostic ignored "-Wint-conversion"
 
 //***********************************GLOBALS***********************************************
 	char name[50], cancel_choice[1];	// name : stores the name of the user 			
@@ -38,12 +39,18 @@
 
 	int entry_choice;
 
+	int ch,x,lnum,d_age,posi,d_id; // variables for the linked list function
+	char ch1;
+	int driv_total;
+
 //*******************************************************************************************
 
 int main() 
 
 { 
 	Q *q = create_queue();
+	struct Node* head = NULL;
+    NODE_D *pl = createNode(lnum,d_age,d_id);
 
 	while(runagain)
 	{
@@ -54,6 +61,31 @@ int main()
 		{
 
 			case 1:{
+
+				x=1;
+				while(x)
+				{
+						printf("Enter 1 for adding and 2 for displaying and exiting \n");
+						scanf("%d",&ch);
+						if(ch == 1)
+						{
+							printf("Enter Licence Number \n");
+							scanf("%d",&lnum);
+							printf("Enter Driver Age \n");
+							scanf("%d",&d_age);
+							printf("Enter Driver ID \n");
+							scanf("%d",&d_id);
+							add_driver(pl,lnum,d_age,d_id);
+							driv_total = countNodes(pl);
+							printf("Driver count :- %d\n",driv_total);
+						}
+						else if(ch == 2)
+						{
+							display_drivers(pl);
+							printf("Driver count :- %d\n",driv_total);
+							x--;
+						}
+				}
 
 				break;
 			}
@@ -259,8 +291,8 @@ int main()
 
 			case 3:{
 
-
-
+				printf("ONGOING JOBS (IDENTIFIED BY JOB NO.) - \t");				
+				display_schedule(q);
 				break;
 			}
 
