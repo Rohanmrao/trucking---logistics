@@ -172,7 +172,7 @@ int main()
   	printf("Weight load in TONS: ");
   	scanf("%d",&tonz);getchar();
 	fflush(stdin);
-	payup = final_cost(ser,dm);                   // final_cost() is called to calculate the final amount 
+	payup = final_cost(ser,dm,tonz);                   // final_cost() is called to calculate the final amount 
 
 	switch (dm){
 		case 1:

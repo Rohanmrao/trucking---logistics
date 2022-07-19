@@ -52,7 +52,7 @@ void random_num(double mob)                                         // Generates
     }
 }
 
-void places_disp()                                       // This is the function that will show all the available places 
+void places_disp()                        // This is the function that will show all the available places 
 {
 	
 	printf("Here are the available locations:\n");
@@ -66,14 +66,13 @@ void places_disp()                                       // This is the function
  
     
     while (1) {
-        // reading file
         display = fgetc(places_disp);
  
         // end of file indicator
         if (feof(places_disp))
             break;
  
-        // displaying every characters
+        // displaying every character
         printf("%c", display);
     }
 	
@@ -171,24 +170,24 @@ int check(int dd,int mm ,int yy,int flag)                       // validating th
       
 }  
 
-void truck_disp()                           // Displays the available truck details
+void truck_disp()// Displays the available truck details
 {
     printf("Here are the available trucks for the trip...\n");
-	printf("___(The deprature timings are mentioned along with the location and driver details)___ \n");
+	printf("___(The start timings are mentioned along with the location and driver details)___ \n");
 	printf("-----------------------------------------------------------------------\n");
 
-        char *truck_db[25] = {"Eicher-0A1","Eicher-0A2","Eicher-0B1","Eicher-0B2","Eicher-0AB",
-		
-		"Mercedes-X0A2" ,"Mercedes-X0A1","Mercedes-X0AB","Mercedes-X0AC" ,"Mercedes-X0AD",
-		"Tata-Heavy-A01","Tata-Heavy-A02","Tata-Heavy-A03","Tata-Heavy-B01","Tata-Heavy-BC1","Tata-Heavy-BC2" 
-		,"Wilson-44-D01","Wilson-44-C01","Wilson-44-B01","Wilson-44-A02","Wilson-44-A01",
-		"Kenworth-DC-A01","Kenworth-DC-A02","Kenworth-DC-B01","Kenworth-DC-B02"
+        char *truck_db[25] = {
+            "Eicher-0A1","Eicher-0A2","Eicher-0B1","Eicher-0B2","Eicher-0AB",
+		    "Mercedes-X0A2" ,"Mercedes-X0A1","Mercedes-X0AB","Mercedes-X0AC" ,"Mercedes-X0AD",
+		    "Tata-Heavy-A01","Tata-Heavy-A02","Tata-Heavy-A03","Tata-Heavy-B01","Tata-Heavy-BC1","Tata-Heavy-BC2" 
+		,   "Wilson-44-D01","Wilson-44-C01","Wilson-44-B01","Wilson-44-A02","Wilson-44-A01",
+		    "Kenworth-DC-A01","Kenworth-DC-A02","Kenworth-DC-B01","Kenworth-DC-B02"
                         };
 
 		char *d_names[25] = {"Lokesh", "Umesh","Ravi","Anthony","Vinod","Nikhil","Rajesh","Raj","Mahesh","Ganesh","Ramesh","Virat","Manish",
-									"Vikram","Joseph","Amritha","Shanti","Darlene","Parvati","Surya","Smrithi","Rupali","Jayamma","Ananya","Aditi"};
+							"Vikram","Joseph","Amritha","Shanti","Rudra","Parvati","Surya","Smrithi","Rupali","Jenny","Ananya","Aditi"};
 
-		char *loc[25] = {"Zone A1","Zone A2","Zone A3","Zone A4","Zone A5",
+		char *loc[25] = {   "Zone A1","Zone A2","Zone A3","Zone A4","Zone A5",
 							"Zone B1","Zone B2","Zone B3","Zone B4","Zone B5",
 							"Zone C1","Zone C2","Zone C3","Zone C4","Zone C5",
 							"Zone D1","Zone D2","Zone D3","Zone D4","Zone D5",
@@ -228,7 +227,7 @@ void truck_disp()                           // Displays the available truck deta
 
 int cout;                             //A counting variable
 
-int final_cost(int s, int distmult)      //Calculates the final trip cost based on vaild input
+int final_cost(int s, int distmult, int weight)      //Calculates the final trip cost based on vaild input
 {	
 	
     cout =0;
@@ -238,19 +237,19 @@ int final_cost(int s, int distmult)      //Calculates the final trip cost based 
 	cout++;
     if(s==1)
     {
-      return (2500*s*distmult*10);
+      return (2500*s*distmult*10*weight);
     }   
     if(s==2)
     {
-      return (2000*s*distmult*10);
+      return (2000*s*distmult*10*weight);
     }  
     if(s==3)
     {
-      return (1500*s*distmult*10);
+      return (1500*s*distmult*10*weight);
     }   
     else
     {
-      return (1000*s*distmult*10);
+      return (1000*s*distmult*10*weight);
     }     
   } 
                                     // formula used to calculate the cost : final price = distance_multiplier * number of tickets * reservation multiplier 
@@ -411,7 +410,7 @@ Q *create_queue(){
 void schedule_job(Q* q, int k)
 {
 
-    printf("Enqueing %d\n",k);
+    printf("Adding Job no. %d...\n",k);
     // Create a new temporary node
     Q *temp = create_node(k);
   
@@ -445,7 +444,7 @@ void delete_job(Q *q)
     if (q->front == NULL)
         q->rear = NULL;
   
-    printf("Deleting %d\n",temp->key);
+    printf("Deleting job no.%d...\n",temp->key);
     free(temp);
 }
 

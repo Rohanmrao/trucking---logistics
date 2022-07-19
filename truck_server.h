@@ -10,7 +10,7 @@ void cancel_end(double mobileNum);
 
 void random_num(double mobileNum); 
 
-int final_cost(int s,int distmult);
+int final_cost(int s,int distmult,int weight);
 int check(int dd,int mm,int yy,int flag);
 int drive_on();
 
