@@ -497,9 +497,12 @@ void display_drivers(LLIST *pl)
 	{
 		while(p!=NULL)
 		{
+            printf("Lic.No\tDriver.age   Driver ID\n");
+            printf("------------------------------\n");
 			printf("%d\t", p->licence_num);
-            printf("%d\t", p->driver_age);     
+            printf("%d      \t", p->driver_age);     
             printf("%d\n", p->driver_id);
+            printf("------------------------------\n");
 			p=p->next;
 		}
 	}
