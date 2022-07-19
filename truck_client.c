@@ -7,21 +7,6 @@
 #pragma GCC diagnostic ignored "-Wimplicit-function-declaration"
 #pragma GCC diagnostic ignored "-Wincompatible-pointer-types"
 
-/* Things to add here - 
-
-	User details from the employee's side 
-    a̶v̶a̶i̶l̶a̶b̶l̶e̶ d̶r̶i̶v̶e̶r̶s̶ 
-	a̶v̶a̶i̶l̶a̶b̶l̶e̶ t̶r̶u̶c̶k̶s̶ 
-	l̶o̶c̶a̶t̶i̶o̶n̶ s̶e̶l̶e̶c̶t̶ 
-	w̶e̶i̶g̶h̶t̶ l̶o̶a̶d̶ 
-	a̶d̶d̶i̶t̶i̶o̶n̶a̶l̶ f̶e̶a̶t̶u̶r̶e̶s̶ n̶e̶e̶d̶e̶d̶
-	t̶o̶t̶a̶l̶ c̶o̶s̶t̶ 
-	fuel + repairs 
-	e̶t̶a̶ 
-	confirmation pemp_no 
-
-
-*/
 //***********************************GLOBALS***********************************************
 	char name[50], cancel_choice[1];	// name : stores the name of the user 			
 	int emp_no ,rm;                        // rm :mod multiplier
