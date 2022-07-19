@@ -4,6 +4,9 @@
 #include <time.h>
 #include <stdlib.h>
 
+#pragma GCC diagnostic ignored "-Wimplicit-function-declaration"
+#pragma GCC diagnostic ignored "-Wincompatible-pointer-types"
+
 // Defnition for all the functions that will land on the opening page  
 
 double mobileNumber(double mb)                                       //Checks whether the mobilenumber entered is 10 digit or not

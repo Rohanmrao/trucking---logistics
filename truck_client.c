@@ -4,6 +4,9 @@
 #include "truck_server.h"
 #include <time.h>
 
+#pragma GCC diagnostic ignored "-Wimplicit-function-declaration"
+#pragma GCC diagnostic ignored "-Wincompatible-pointer-types"
+
 /* Things to add here - 
 
 	User details from the employee's side 
@@ -43,11 +46,19 @@
 	"Chennai", "Secunderabad", "Hubli", "Hospet", "Jaipur", "Lucknow", "Solapur", "Mangalore"};
 
 	int eta; // eta in hours
+
+	int job_no;
+
+	int runagain = 1;
+
 //*******************************************************************************************
 
 int main() 
 
 { 
+	Q *q = create_queue();
+
+	while(runagain){
 	printf("\t\t=================================================\n");
 	printf("\t\t|                                               |\n");
 	printf("\t\t|     --------------------------------          |\n");
@@ -80,7 +91,11 @@ int main()
 
 	if(strcmp(cancel_choice,"y") == 0)
 	{
-		cancel_front(mobileNum);                      //cancel_front() is called if the user wants to cancel the previously booked tickets
+		cancel_front(mobileNum);
+		delete_job(q);
+		printf("Jobs in progress...\t");
+		display_schedule(q);  
+		runagain--;                    //cancel_front() is called if the user wants to cancel the previously booked tickets
 	}
 	printf("\n");
 	places_disp();
@@ -185,6 +200,10 @@ int main()
 			{eta = 18; break;}
 	}
 
+	job_no++;
+	schedule_job(q,job_no);
+	
+
 	// bill displaying data based on info collected from user
 	printf("\n");
 	printf("\n----------DETAILS------------\n");
@@ -198,10 +217,10 @@ int main()
 	printf("From: %s\n", loc.origin);
 	printf("To: %s\n", loc.destination);
 	printf("Truck: %d\n",choice_flag-1);
-  	printf("JOB Status: INITIATED. ETA : %d hours\n",eta);
+  	printf("JOB Status: INITIATED. JOB NO. %d\tETA : %d hours\n",job_no,eta);
 	printf("Total Amount: %d\n",payup);
 	drive_on();
-    printf("\n-------------------------------------------------");
+
 
 	printf("\n Do you want to cancel the scheduled job ? (y/n): ");
 	scanf("%s",cancel_choice);getchar();
@@ -209,16 +228,28 @@ int main()
 	if(strcmp(cancel_choice,"y") == 0)
 	{
 		cancel_end(mobileNum);
+		delete_job(q);
+		printf("Job cancelled... Current jobs are...\n");
+		display_schedule(q);
 	}
 	else
 	{
-		printf("\n");
 		printf("Thank You\n");
 		printf("*******************************************************\n");
 		printf("*******************************************************\n");
+		printf("Run a new terminal ? (1/0)\t"); scanf("%d",&runagain);
+		if(runagain == 0)
+		{
+			printf("\nJobs in progress...\n");
+			display_schedule(q);
+			runagain--;}
+
 		fflush(stdin);
 		fflush(stdout);
-		main(); // running the main fucntion again for a rerun;
-	}
+		}
 
+	}
+		return 0;
+		
 }
+
